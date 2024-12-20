@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/icon.png" type="image/svg+xml">
+    <title>Indústrias Wayne</title>
+    <link rel="stylesheet" href="./assets/css/styles-main.css">
+</head>
+<body>
+    <header>
+        <img src="./assets/img/logo-batman.png" alt="Logotipo do Batman" style="width: 80px; display: block; margin: 0 auto;">
+        <h1>Plataforma de Gerenciamento - Indústrias Wayne</h1>
+    </header>
+    <main>
+        <section id="auth-section">
+            <h2>Sistema de Controle de Acesso</h2>
+            <form id="auth-form">
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" placeholder="Digite seu usuário" required>
+                
+                <label for="password">Senha:</label>
+                <input type="password" id="password" placeholder="Digite sua senha" required>
+                
+                <button type="submit">Entrar</button>
+            </form>
+            <p id="auth-message"></p>
+        </section>
+
+        <section id="resource-section" class="hidden">
+            <h2>Gestão de Recursos</h2>
+            <div id="resource-actions">
+                <button id="add-resource">Adicionar Recurso</button>
+                <button id="update-resource">Atualizar Recurso</button>
+                <button id="remove-resource">Remover Recurso</button>
+            </div>
+            <ul id="resource-list"></ul>
+        </section>
+
+        <section id="dashboard-section" class="hidden">
+            <h2>Dashboard de Visualização</h2>
+            <div id="dashboard">
+                <p>Total de Funcionários: <span id="total-employees">0</span></p>
+                <p>Total de Recursos: <span id="total-resources">0</span></p>
+                <p>Atividades Recentes: <span id="recent-activities">Nenhuma</span></p>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
