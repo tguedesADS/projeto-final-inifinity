@@ -101,7 +101,7 @@ function updateResources() {
 function updateTotalLogins() {
     const today = new Date().toISOString().split("T")[0];
     const totalLogins = loginCounts[today] || 0;
-    document.getElementById("total-logins").textContent = `Total de funcionários logados hoje: ${totalLogins}`;
+    document.getElementById("total-employees").textContent = `Total de funcionários logados hoje: ${totalLogins}`;
 }
 
 function saveResources() {
