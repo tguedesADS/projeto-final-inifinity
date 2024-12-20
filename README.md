@@ -53,5 +53,3 @@ Este projeto proporciona uma maneira simples de gerenciar recursos com controle 
 O armazenamento local foi escolhido para facilitar o desenvolvimento e testes rápidos, mas, para um sistema de produção, seria recomendado usar uma solução de banco de dados.
 
 ---
-
-Essa documentação oferece uma visão geral rápida do funcionamento e estrutura do projeto.
