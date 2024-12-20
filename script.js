@@ -5,6 +5,7 @@ const users = [
 ];
 
 let resources = JSON.parse(localStorage.getItem("resources")) || [];
+let loginCounts = JSON.parse(localStorage.getItem("loginCounts")) || {};
 
 function generateID() {
     return Math.random().toString(36).substring(2, 10).toUpperCase();
@@ -26,6 +27,17 @@ document.getElementById("auth-form").addEventListener("submit", function (e) {
         document.getElementById("auth-section").classList.add("hidden");
         document.getElementById("resource-section").classList.remove("hidden");
         document.getElementById("dashboard-section").classList.remove("hidden");
+
+        if (user.role !== "admin") {
+            const today = new Date().toISOString().split("T")[0];
+            if (!loginCounts[today]) {
+                loginCounts[today] = 0;
+            }
+            loginCounts[today]++;
+            saveLoginCounts();
+            updateTotalLogins();
+        }
+
         updateResources();
     } else {
         authMessage.textContent = "Credenciais inválidas.";
@@ -86,12 +98,23 @@ function updateResources() {
     document.getElementById("recent-activities").textContent = "Atualização realizada.";
 }
 
+function updateTotalLogins() {
+    const today = new Date().toISOString().split("T")[0];
+    const totalLogins = loginCounts[today] || 0;
+    document.getElementById("total-logins").textContent = `Total de funcionários logados hoje: ${totalLogins}`;
+}
+
 function saveResources() {
     localStorage.setItem("resources", JSON.stringify(resources));
+}
+
+function saveLoginCounts() {
+    localStorage.setItem("loginCounts", JSON.stringify(loginCounts));
 }
 
 function entrarGerenciamento() {
     window.location.href = "main.html";
 }
 
+updateTotalLogins();
 updateResources();
